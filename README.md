@@ -1,202 +1,211 @@
-<!-- UFC figure pixel -->
-<div align="center">
-    <img class="aligncenter" src="libs/ufcpixel.png" width="220px" height="220px"/>
-</div>
+# 中山大学PPT模板
 
-<br/>
+<center>张钧宇<br>18340211<br>计算机科学与技术<br>zhangjunyu@nelson-cheung.cn<br>https://nelson-cheung.cn</center>
 
-<!-- Title -->
-<div align="center">
-    <h1><b>Template Beamer UFC</b></h1>
-</div>
+![1](gallery/1.png)
 
-<!-- Badges -->
-[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/maumneto/TemplateBeamerUFC)[![GitHub issues](https://img.shields.io/github/issues/maumneto/TemplateBeamerUFC)](https://github.com/maumneto/TemplateBeamerUFC/issues)[![GitHub stars](https://img.shields.io/github/stars/maumneto/TemplateBeamerUFC)](https://github.com/maumneto/TemplateBeamerUFC/stargazers)[![GitHub forks](https://img.shields.io/github/forks/maumneto/TemplateBeamerUFC)](https://github.com/maumneto/TemplateBeamerUFC/network)[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/maumneto/TemplateBeamerUFC)[![Overleaf badge](https://img.shields.io/badge/Is_in_Oveleaf_Repository%3F-Yes!-<COLOR>.svg)](https://shields.io/)
+# 编译方法
 
+本模板在`texlive 2021`下成功编译，编译命令如下。
 
-<!-- Table of Contents -->
-<p align="center">
-    <a href="#what is it?">What is it?</a> •
-    <a href="#for whom?">For Whom?</a> •
-    <a href="#tips">Tips</a> •
-    <a href="#changelog">Changelog</a> •
-    <a href="#author">Author</a>
-</p>
+```shell
+xelatex document.tex
+bibtex document
+xelatex document.tex
+xelatex document.tex
+```
 
-<!-- Sections -->
-## What is it?
+清除中间文件。
 
-This project aims to create a template for presentation for the Universidad Nacional de Colombia. It was created a class called **ufc_format.cls** with a set of environments and commands related to the document. This template is not an official document from the Universidad Nacional de Colombia. However, this template can be used to create classes, presentations, short courses, etc.
+```
+make clean
+```
 
-## For Whom?
+# 存在的问题
 
-This template can be useful for the Universidad Nacional de Colombia UNAL professors and students.
++ frame中脚注不显示的问题。
 
-- <b>Professors:</b> for creating classes and presentations
+# 引言
+
+本模板基于[Presentación UNAL](https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp)，[SYSU Beamer Template](https://github.com/yxnchen/sysu-beamer-template)，[THU Beamer Theme](https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb)，做出如下修改。
+
++ 去除背景的水印图片，背景水印图片会导致页面切换时产生屏闪现象。
++ 基于[Presentación UNAL](https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp)的排版风格，使用[SYSU Beamer Template](https://github.com/yxnchen/sysu-beamer-template)的颜色主题，采用[THU Beamer Theme](https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb)的内容进行测试。
+
+![2](gallery/2.png)
+
+# 使用举例
+
+## blocks
+
+![3](gallery/3.png)
+
+```latex
+\begin{frame}
+    \frametitle{普通区块}
   
-- <b>Students:</b> for assignments and presentations
-
-## Tips
-
-Some tips for using this template
-
-### Blocks
-
-- Default Block
-  
-```tex
-    \begin{block}{Default Block}
-        Body of default block.
+    \begin{block}{国内\LaTeX\ 讨论区}
+      \begin{enumerate}
+        \item LaTeX Studio\footnote{\url{https://www.latexstudio.net/}}
+      \end{enumerate}
     \end{block}
-```
-
-- Alert Block
   
-```tex
-    \begin{alertblock}{Alert Block}
-        Body of alert block.
+    \begin{alertblock}{国外\LaTeX\ 讨论区}
+      \begin{enumerate}
+        \item LaTeX Stack Exchange\footnote{\url{https://tex.stackexchange.com/}}
+      \end{enumerate}
     \end{alertblock}
-```
 
-- Example Block
-  
-```tex
-    \begin{exampleblock}{Example Block}
-        Body of example block.
+    \begin{exampleblock}{example 示例环境}
+      \begin{enumerate}
+        \item LaTeX Stack Exchange\footnote{\url{https://tex.stackexchange.com/}}
+      \end{enumerate}   
     \end{exampleblock}
-```
 
-### Texts
-
-- Example text
-```tex
- \example{Text Example}
-```
-
-- Emphasis text
-```tex
- \emph{Text emphasis}
-```
-
-### Boxes
-
-- Simple Box
-
-```tex
-\simplebox{testando o simple box}
-```
-
-- Alert Box
-
-```tex
-\alertbox{testando o alert box}
-```
-
-- Success Box
-
-```tex
-\successbox{testando o success box}
-```
-
-### Codes
-
-It is possible to insert codes in this presentation. This template uses two packages for algorithms: `algorithm2e` and `listings`. 
-
-- **Documentation** 
-  
-  - algorithm2e: [Algorithm2e Package Documentation](http://linorg.usp.br/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)
-  
-  - listings: [Listings Package Documentation](http://linorg.usp.br/CTAN/macros/latex/contrib/listings/listings.pdf)
-
-The following example shows how to create a pseudocode:
-
-```tex
-\begin{algorithm}[H]
-    \SetAlgoLined #includes indentation
-    \LinesNumbered #includes lines number
-    \SetKwInOut{Input}{input}
-    \SetKwInOut{Output}{output}
-    \Input{write the input}
-    \Output{write the output}
-    \KwData{write the data}
-    \KwResult{Write the result}
-    initialization\;
-    \While{While condition}
-    {
-        instructions\;
-        \eIf{condition}{
-           instructions1\;
-           instructions2\;
-           }{
-           instructions3\;
-        }
-    } 
-    \caption{How to write algorithms}
-\end{algorithm}
-```
-
-The following example shows how to insert a code that is in the project files:
-
-```tex
-\begin{frame}{Including Codes}
-    \lstset{language=Python}
-    \lstinputlisting[language=Python]{path_of_python_code.py}
 \end{frame}
 ```
 
-The following example shows how to insert a figure:
+## 表格
 
-```tex
-\begin{figure}
-    \centering
-    \caption{Caption of the Figure}
-    \includegraphics[scale=1]{path_of_the_figure}
-    \source{Source of the Figure}
-    \label{fig:figlabel}
-\end{figure}
+![4](gallery/4.png)
+
+```latex
+\begin{frame}{Why Beamer}
+  \begin{itemize}
+      \item \LaTeX 广泛用于学术界，期刊会议论文模板
+  \end{itemize}
+  \begin{table}[h]
+      \centering
+      \begin{tabular}{c|c}
+          Microsoft\textsuperscript{\textregistered}  Word & \LaTeX \\
+          \hline
+          文字处理工具 & 专业排版软件 \\
+          容易上手，简单直观 & 容易上手 \\
+          所见即所得 & 所见即所想，所想即所得 \\
+          高级功能不易掌握 & 进阶难，但一般用不到 \\
+          处理长文档需要丰富经验 & 和短文档处理基本无异 \\
+          花费大量时间调格式 & 无需担心格式，专心作者内容 \\
+          公式排版差强人意 & 尤其擅长公式排版 \\
+          二进制格式，兼容性差 & 文本文件，易读、稳定 \\
+          付费商业许可 & 自由免费使用 \\
+      \end{tabular}
+  \end{table}
+\end{frame}
 ```
 
-The following example shows how to insert a multi-columns:
+## 图片
 
-```tex
-\begin{columns}{}
-    \begin{column}{0.5\textwidth}
-        \justify
-        Text of the left side!
-    \end{column}
-    \begin{column}{0.5\textwidth}
-        \justify
-        Text of the right side!
-    \end{column}
-\end{columns}    
+![5](gallery/5.png)
+
+```latex
+\begin{frame}{图片展示}
+  \begin{figure}
+      \centering
+      \caption{Logo of SYSU}
+      \includegraphics[scale=0.05]{libs/sysu_big_logo.jpeg}
+      \source{Nelson Cheung\cite{sitiounal} \cite{einstein}}
+  \end{figure}
+\end{frame}
 ```
 
-### Custom Commands
+## 数学公式
 
-This template has some custom commands that are described below:
+![6](gallery/6.png)
 
-To print 'Universidad Nacional de Colombia'
-```tex
-\ufc
+![7](gallery/7.png)
+
+```latex
+\begin{frame}{排版举例}
+  \begin{equation*}
+    J(\theta) = \mathbb{E}_{\pi_\theta}[G_t] = \sum_{s\in\mathcal{S}} d^\pi (s)V^\pi(s)=\sum_{s\in\mathcal{S}} d^\pi(s)\sum_{a\in\mathcal{A}}\pi_\theta(a|s)Q^\pi(s,a)
+  \end{equation*}
+      
+  \begin{align}
+    Q_\mathrm{target}&=r+\gamma Q^\pi(s^\prime, \pi_\theta(s^\prime)+\epsilon)\\
+          \epsilon&\sim\mathrm{clip}(\mathcal{N}(0, \sigma), -c, c)\nonumber
+  \end{align}
+\end{frame}
+
+\begin{frame}
+  \begin{exampleblock}{编号多行公式}
+      % Taken from Mathmode.tex
+      \begin{multline}
+          A=\lim_{n\rightarrow\infty}\Delta x\left(a^{2}+\left(a^{2}+2a\Delta x+\left(\Delta x\right)^{2}\right)\right.\label{eq:reset}\\
+          +\left(a^{2}+2\cdot2a\Delta x+2^{2}\left(\Delta x\right)^{2}\right)\\
+          +\left(a^{2}+2\cdot3a\Delta x+3^{2}\left(\Delta x\right)^{2}\right)\\
+          +\ldots\\
+          \left.+\left(a^{2}+2\cdot(n-1)a\Delta x+(n-1)^{2}\left(\Delta x\right)^{2}\right)\right)\\
+          =\frac{1}{3}\left(b^{3}-a^{3}\right)
+      \end{multline}
+  \end{exampleblock}
+\end{frame}
 ```
 
-To put the department name
-```tex
-\department{Department Name}
+## 伪代码
+
+![8](gallery/8.png)
+
+```latex
+\begin{frame}{算法(pseudocode)}
+    \begin{algorithm}[H]
+        \SetAlgoLined
+        \LinesNumbered
+        \SetKwInOut{Input}{input}
+        \SetKwInOut{Output}{output}
+        \Input{x: float, y: float}
+        \Output{r: float}
+        \While{True}{
+          r = x + y\;
+          \eIf{r >= 30}{
+           ``do something''
+           break\;
+           }{
+            ``do nothing''
+          }
+         } 
+         \caption{Algorithm Example}
+    \end{algorithm}
+\end{frame}
 ```
 
-To put the email
-```tex
-\email{user@domain}
+## 真实代码
+
+![9](gallery/9.png)
+
+![10](gallery/10.png)
+
+![11](gallery/11.png)
+
+![12](gallery/12.png)
+
+
+
+```latex
+\begin{frame}{真实代码}
+  \lstset{language=Python}
+  \lstinputlisting[language=Python]{code/main.py}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=C]{code/source.c}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=Java]{code/helloworld.java}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=HTML]{code/index.html}
+\end{frame}
 ```
 
-## Changelog
+# 参考文献
 
-[Changelog File](./CHANGELOG.md)
+![13](gallery/13.png)
 
-## Author
+```latex
+\begin{frame}[allowframebreaks]
+    \printbibliography[title = {参考文献}]
+\end{frame}
+```
 
-Developed by <b></b> :metal: 
-
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:maumneto@gmail.com)[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/maumneto)[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maumneto/)[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@maumneto)[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maumneto)

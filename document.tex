@@ -33,7 +33,6 @@
 %  2 标题页显示的中文时间信息
 \date[\ctoday]{\ctoday}
 
-
 \begin{document}
 
 \input{libs/code_style.tex}
@@ -42,7 +41,8 @@
 \author[Nelson Cheung]{
   Nelson Cheung \\\medskip
   {\email{zhangjunyu@nelson-cheung.cn}} \\
-  {\email{nelson-cheung.cn}}
+  {\url{nelson-cheung.cn}} \\
+  {\small{License: \href{https://license.coscl.org.cn/MulanPSL2/}{MulanPSL-2.0}}}
 }
 
 \begin{frame}
@@ -60,7 +60,7 @@
 \AtBeginSection[]
 {
 	\begin{frame}{主要内容}
-		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide] %这几个参数我也不知道该如何准确地解释，反正它们最终的效果是突出显示当前章节，而其它章节都进行了淡化处理
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
 		\addtocounter{framenumber}{-1}
 	\end{frame}
 }
@@ -72,10 +72,23 @@
   本模板基于\href{https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp}{Presentación UNAL}，\href{https://github.com/yxnchen/sysu-beamer-template}{SYSU Beamer Template}，\href{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}{THU Beamer Theme}，做出如下修改。
   \begin{itemize}
     \item 去除背景的水印图片，背景水印图片会导致页面切换时产生屏闪现象。
-    \item 基于Presentación UNAL的排版风格，使用SYSU Beamer Template的颜色主题，采用THU Beamer Theme的内容进行测试。
+    \item 基于Presentación UNAL的排版风格，使用SYSU Beamer Template的颜色主题，采用THU Beamer Theme和Presentación UNAL的内容进行测试。
+    \item 本模板使用MulanPSL-2.0开源许可协议。
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{编译方法}
+  本模板在texlive 2021下成功编译, 依次执行下面4条命令即可编译。
+  \begin{lstlisting}
+xelatex document.tex
+bibtex document
+xelatex document.tex
+xelatex document.tex\end{lstlisting}
+  清除编译生成的中间文件。
+  \begin{lstlisting}
+make clean\end{lstlisting}  
+
+\end{frame}
 \section{使用举例}
 \begin{frame}{blocks}
   \begin{block}{国内\LaTeX\ 讨论区}
