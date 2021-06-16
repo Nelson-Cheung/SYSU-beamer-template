@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file contains the packages that can be used in the beamer. %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package to fonts family
+\usepackage[T1]{fontenc}
+% Package to accentuation
+\usepackage[utf8]{inputenc}
+% Package to Portuguese language
+\usepackage[british]{babel}
+% Package to Figures
+\usepackage{graphicx}
+% Package to the colors
+\usepackage{color}
+% Package to the colors
+\usepackage{xcolor}
+% Packages to math symbols and expressions
+\usepackage{amsfonts, amssymb, amsmath}
+% Package to multiple lines and columns in table
+\usepackage{multirow, array} 
+% Package to create pseudo-code
+% For more detail of this package: http://linorg.usp.br/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
+\usepackage{algorithm2e}
+% Package to insert code
+\usepackage{listings} 
+\usepackage{keyval}
+% Package to justify text
+\usepackage[document]{ragged2e}
+% Package to manage the bibliography
+\usepackage[backend=bibtex, style=numeric, sorting=none]{biblatex}
+% Package to facilities quotations
+\usepackage{csquotes}
+% Package to use multicols
+\usepackage{multicol}
+% Package to Chinese
+\usepackage{ctex}
+
+%% set Chinese Font
+\setCJKmainfont[ItalicFont={SimSun}]{SimSun}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{FangSong}
+
+% set English Font
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Arial}
+\setmonofont{Consolas}
+% set math Font
+\usefonttheme[onlymath]{serif}

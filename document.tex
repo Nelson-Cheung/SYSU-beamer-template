@@ -1,0 +1,209 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This project aims to create the UNAL template for presentation.                %%
+%% author:Félix Julián Gutiérrez 
+%% contacts:                                                                     %%
+%%    e-mail: fjgutierrezb@unal.edu.co                                                   %%
+%%   www.unal.edu.co
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{libs/format}
+% Inserting the preamble file with the packages
+\input{libs/preamble.tex}
+% Inserting the references file
+\bibliography{references.bib}
+
+
+% 演示文稿标题:
+%  1 底部显示的标题;
+%  2 标题页正中显示的大标题;
+\title[sysu ppt template]{中山大学PPT模板}
+
+% 可选：标题页显示的副标题
+\subtitle{使用beamer写PPT}
+
+% 学校学院信息:
+%  1 顶部学校信息
+%  2 标题页显示的学院学校信息
+\institute[Sun Yat-Sen University]{
+  计算机学院 \\ 
+  中山大学}
+
+%% 时间信息
+%  1 底部显示的标准时间信息
+%  2 标题页显示的中文时间信息
+\date[\ctoday]{\ctoday}
+
+
+\begin{document}
+
+\input{libs/code_style.tex}
+
+% 作者信息
+\author[Nelson Cheung]{
+  Nelson Cheung \\\medskip
+  {\email{zhangjunyu@nelson-cheung.cn}} \\
+  {\email{nelson-cheung.cn}}
+}
+
+\begin{frame}
+  % 标题页
+  \titlepage
+\end{frame}
+% 标题页不编号
+\setcounter{framenumber}{0}
+
+\begin{frame}
+  \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+  \addtocounter{framenumber}{-1}
+\end{frame}
+
+\AtBeginSection[]
+{
+	\begin{frame}{主要内容}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide] %这几个参数我也不知道该如何准确地解释，反正它们最终的效果是突出显示当前章节，而其它章节都进行了淡化处理
+		\addtocounter{framenumber}{-1}
+	\end{frame}
+}
+
+
+\section{引言}
+
+\begin{frame}{写在前面}
+  本模板基于\href{https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp}{Presentación UNAL}，\href{https://github.com/yxnchen/sysu-beamer-template}{SYSU Beamer Template}，\href{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}{THU Beamer Theme}，做出如下修改。
+  \begin{itemize}
+    \item 去除背景的水印图片，背景水印图片会导致页面切换时产生屏闪现象。
+    \item 基于Presentación UNAL的排版风格，使用SYSU Beamer Template的颜色主题，采用THU Beamer Theme的内容进行测试。
+  \end{itemize}
+\end{frame}
+
+\section{使用举例}
+\begin{frame}{blocks}
+  \begin{block}{国内\LaTeX\ 讨论区}
+    \begin{enumerate}
+      \item LaTeX Studio\footnote{\url{https://www.latexstudio.net/}}
+    \end{enumerate}
+  \end{block}
+
+  \begin{alertblock}{国外\LaTeX\ 讨论区}
+    \begin{enumerate}
+      \item LaTeX Stack Exchange\footnote{\url{https://tex.stackexchange.com/}}
+    \end{enumerate}
+  \end{alertblock}
+
+  \begin{exampleblock}{example 示例环境}
+    \begin{enumerate}
+      \item LaTeX Stack Exchange\footnote{\url{https://tex.stackexchange.com/}}
+    \end{enumerate}   
+  \end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{表格}
+  \begin{itemize}
+      \item \LaTeX 广泛用于学术界，期刊会议论文模板
+  \end{itemize}
+  \begin{table}[h]
+      \centering
+      \begin{tabular}{c|c}
+          Microsoft\textsuperscript{\textregistered}  Word & \LaTeX \\
+          \hline
+          文字处理工具 & 专业排版软件 \\
+          容易上手，简单直观 & 容易上手 \\
+          所见即所得 & 所见即所想，所想即所得 \\
+          高级功能不易掌握 & 进阶难，但一般用不到 \\
+          处理长文档需要丰富经验 & 和短文档处理基本无异 \\
+          花费大量时间调格式 & 无需担心格式，专心作者内容 \\
+          公式排版差强人意 & 尤其擅长公式排版 \\
+          二进制格式，兼容性差 & 文本文件，易读、稳定 \\
+          付费商业许可 & 自由免费使用 \\
+      \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{图片}
+  \begin{figure}
+      \centering
+      \caption{Logo of SYSU}
+      \includegraphics[scale=0.05]{libs/sysu_big_logo.jpeg}
+      \source{Nelson Cheung\cite{sitiounal} \cite{einstein}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{数学公式}
+  \begin{equation*}
+    J(\theta) = \mathbb{E}_{\pi_\theta}[G_t] = \sum_{s\in\mathcal{S}} d^\pi (s)V^\pi(s)=\sum_{s\in\mathcal{S}} d^\pi(s)\sum_{a\in\mathcal{A}}\pi_\theta(a|s)Q^\pi(s,a)
+  \end{equation*}
+      
+  \begin{align}
+    Q_\mathrm{target}&=r+\gamma Q^\pi(s^\prime, \pi_\theta(s^\prime)+\epsilon)\\
+          \epsilon&\sim\mathrm{clip}(\mathcal{N}(0, \sigma), -c, c)\nonumber
+  \end{align}
+\end{frame}
+
+\begin{frame}{数学公式}
+  \begin{exampleblock}{编号多行公式}
+      % Taken from Mathmode.tex
+      \begin{multline}
+          A=\lim_{n\rightarrow\infty}\Delta x\left(a^{2}+\left(a^{2}+2a\Delta x+\left(\Delta x\right)^{2}\right)\right.\label{eq:reset}\\
+          +\left(a^{2}+2\cdot2a\Delta x+2^{2}\left(\Delta x\right)^{2}\right)\\
+          +\left(a^{2}+2\cdot3a\Delta x+3^{2}\left(\Delta x\right)^{2}\right)\\
+          +\ldots\\
+          \left.+\left(a^{2}+2\cdot(n-1)a\Delta x+(n-1)^{2}\left(\Delta x\right)^{2}\right)\right)\\
+          =\frac{1}{3}\left(b^{3}-a^{3}\right)
+      \end{multline}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{伪代码}
+  \begin{algorithm}[H]
+      \SetAlgoLined
+      \LinesNumbered
+      \SetKwInOut{Input}{input}
+      \SetKwInOut{Output}{output}
+      \Input{x: float, y: float}
+      \Output{r: float}
+      \While{True}{
+        r = x + y\;
+        \eIf{r >= 30}{
+         ``do something''
+         break\;
+         }{
+          ``do nothing''
+        }
+       } 
+       \caption{Algorithm Example}
+  \end{algorithm}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstset{language=Python}
+  \lstinputlisting[language=Python]{code/main.py}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=C]{code/source.c}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=Java]{code/helloworld.java}
+\end{frame}
+
+\begin{frame}{真实代码}
+  \lstinputlisting[language=HTML]{code/index.html}
+\end{frame}
+
+\section{存在的问题}
+
+\begin{frame}
+
+\begin{enumerate}
+  \item frame中脚注不显示的问题
+\end{enumerate}
+  
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \printbibliography[title = {参考文献}]
+\end{frame}
+
+\end{document}
