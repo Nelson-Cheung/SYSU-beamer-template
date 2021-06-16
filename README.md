@@ -1,7 +1,5 @@
 # 中山大学PPT模板
 
-<center>张钧宇<br>18340211<br>计算机科学与技术<br>zhangjunyu@nelson-cheung.cn<br>https://nelson-cheung.cn</center>
-
 ![1](gallery/1.png)
 
 # 编译方法
