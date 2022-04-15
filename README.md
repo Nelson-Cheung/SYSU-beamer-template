@@ -1,10 +1,12 @@
 # 中山大学PPT模板
 
-![1](gallery/1.png)
+![1](gallery/0.gif)
 
 # 编译方法
 
-本模板在`texlive 2021`下成功编译，编译命令如下。
+可以直接上传到overleaf，然后将编译器选择`xelatex`，但感觉非常慢，不如本地编译。
+
+在本地环境下，本模板在`texlive 2021`下成功编译，编译命令如下。
 
 ```shell
 xelatex document.tex
@@ -19,16 +21,14 @@ xelatex document.tex
 make clean
 ```
 
-# 存在的问题
-
-+ frame中脚注不显示的问题。
-
 # 引言
 
 本模板基于[Presentación UNAL](https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp)，[SYSU Beamer Template](https://github.com/yxnchen/sysu-beamer-template)，[THU Beamer Theme](https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb)，做出如下修改。
 
 + 去除背景的水印图片，背景水印图片会导致页面切换时产生屏闪现象。
 + 基于[Presentación UNAL](https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp)的排版风格，使用[SYSU Beamer Template](https://github.com/yxnchen/sysu-beamer-template)的颜色主题，采用[THU Beamer Theme](https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb)的内容进行测试。
+
+![2](gallery/1.png)
 
 ![2](gallery/2.png)
 

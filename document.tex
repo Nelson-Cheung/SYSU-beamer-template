@@ -69,7 +69,7 @@
 \section{引言}
 
 \begin{frame}{写在前面}
-  本模板基于\href{https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp}{Presentación UNAL}，\href{https://github.com/yxnchen/sysu-beamer-template}{SYSU Beamer Template}，\href{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}{THU Beamer Theme}，做出如下修改。
+  本模板基于Presentación UNAL\footnote[frame]{https://www.overleaf.com/latex/templates/presentacion-unal/nzfkbkgnctfp}，SYSU Beamer Template\footnote[frame]{https://github.com/yxnchen/sysu-beamer-template}，THU Beamer Theme\footnote[frame]{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}，做出如下修改。
   \begin{itemize}
     \item 去除背景的水印图片，背景水印图片会导致页面切换时产生屏闪现象。
     \item 基于Presentación UNAL的排版风格，使用SYSU Beamer Template的颜色主题，采用THU Beamer Theme和Presentación UNAL的内容进行测试。
@@ -207,12 +207,13 @@ make clean\end{lstlisting}
 
 \section{存在的问题}
 
-\begin{frame}
-
+\begin{frame}[fragile]
+若在使用过程中发现问题，可以提PR。
 \begin{enumerate}
-  \item frame中脚注不显示的问题
+  \item （已解决）frame中脚注不显示的问题，使用\verb|\footnote[frame]{}|来添加脚注。
+  \item （已解决）overleaf无法编译。
 \end{enumerate}
-  
+
 \end{frame}
 
 \begin{frame}[allowframebreaks]

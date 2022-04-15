@@ -19,7 +19,7 @@
 
 %% Putting the background image in the frames
 %\usebackgroundtemplate{\includegraphics[width=1.0\paperwidth]{libs/sysu_background.png}}
-\logo{\includegraphics[scale=0.1]{libs/sysu_logo.jpeg}\hspace{10.0cm}\vspace{-0.4cm}}
+\logo{\includegraphics[scale=0.1]{libs/sysu_logo.png}\hspace{10.0cm}\vspace{-0.4cm}}
 
 %% Packages Used
 \RequirePackage[utf8]{inputenc}
